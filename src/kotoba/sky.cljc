@@ -1,8 +1,12 @@
 (ns kotoba.sky
   "Sky / background as a GPU gradient pass — the vertical zenith→ground wash that draw-2d! drew with a
-   Canvas2D linear gradient, as a fullscreen kotoba.wgsl shader. One EDN source → WGSL +
-   GLSL (WebGL2 via naga). A fullscreen triangle, the fragment lerps the two colours by screen y. .cljc"
-  (:require [kotoba.wgsl :as w]))
+   Canvas2D linear gradient, as a fullscreen kami.wgsl shader. One EDN source → WGSL +
+   GLSL (WebGL2 via naga). A fullscreen triangle, the fragment lerps the two colours by screen y. .cljc
+
+   Depends directly on kotoba-lang/webgpu's kami.wgsl (2026-07-09 dedup — see kotoba-lang/wgsl's
+   CHANGELOG.md for the rationale: kami.wgsl is the canonical WGSL-as-data compiler, kotoba.wgsl is
+   now a thin re-export of it)."
+  (:require [kami.wgsl :as w]))
 
 (defn gradient-shader []
   (w/shader
