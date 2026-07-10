@@ -1,18 +1,10 @@
 # kotoba-lang/sky
 
-Kotoba package for `kotoba.sky`.
+**SSoT** for `kami.sky` (ADR-2607102200 addendum 5). Extracted from webgpu vendor copy.
 
-## Dependency change (2026-07-09)
+| Namespace | Role |
+|---|---|
+| `kami.sky` | Implementation |
+| `kotoba.sky` | Compatibility facade |
 
-`kotoba.sky` now requires `kami.wgsl` (from `kotoba-lang/webgpu`) directly instead of the
-standalone `kotoba-lang/wgsl` repo's `kotoba.wgsl`. The two copies of the WGSL-as-data compiler
-were byte-identical (no behavioural bug, unlike the `sprite-gpu` case), but only `kami.wgsl`
-receives ongoing feature/bugfix work — see `kotoba-lang/wgsl`'s CHANGELOG.md for the full writeup.
-`kotoba-lang/wgsl` itself now re-exports `kami.wgsl` too, so this change is behaviour-preserving
-either way — it just removes an extra hop.
-
-## Test
-
-```sh
-clojure -M:test
-```
+`webgpu` depends on this package; do not re-vendor.

@@ -1,7 +1,7 @@
 (ns sky-test
   (:require [clojure.test :refer [deftest is]]
             [clojure.string :as str]
-            [kotoba.sky :as sky]))
+            [kami.sky :as sky]))
 
 (deftest gradient-shader-emits-wgsl
   (let [s (sky/gradient-shader)]
